@@ -17,7 +17,14 @@ import fetch from 'node-fetch';
         }
 
         const authorization = core.getInput("authorization");
+        const prAsPrerelease = core.getInput("publish-pr-prereleases") === "true"
+
         const isPr = github.context.eventName === "pull_request";
+
+        if (isPr && !prAsPrerelease) {
+            return;
+        }
+
         const version = api.info.version + (isPr ? `-pre${github.context.runNumber}` : "");
 
         console.log(`Uploading ${api.info.title} version ${version} to OpenAPI hub.`)
