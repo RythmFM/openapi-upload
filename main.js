@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const SwaggerParser = require('@apidevtools/swagger-parser');
+const fetch = require("node-fetch");
 
 (async () => {
     try {
