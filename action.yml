@@ -1,0 +1,25 @@
+name: 'OpenAPI Upload'
+description: 'Validate and upload the openapi file'
+inputs:
+  validate-only:
+    description: 'Only validate the openapi file'
+    required: true
+    default: 'false'
+  file:
+    description: 'The openapi file'
+    required: true
+  publish-pr-prereleases:
+    description: 'Whether to publish PR changes as pre-release'
+    required: true
+    default: 'true'
+  authorization:
+    description: 'Credentials for publishing to openapi hub'
+    required: false
+outputs:
+  name:
+    description: 'The designated name of the uploaded openapi file'
+  version:
+    description: 'The designated version of the uploaded openapi file'
+runs:
+  using: 'node16'
+  main: 'main.js'
