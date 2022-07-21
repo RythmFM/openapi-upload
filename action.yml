@@ -22,4 +22,4 @@ outputs:
     description: 'The designated version of the uploaded openapi file'
 runs:
   using: 'node16'
-  main: 'main.js'
+  main: 'dist/index.js'
